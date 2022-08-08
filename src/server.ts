@@ -9,6 +9,7 @@ app.get("/", (req, res) => {
   });
 });
 
+// the object body is a dictionary of [key: string]: string
 app.post("/", (req, res) => {
   const keyCount = Object.keys(req.body).length;
   if (keyCount > 0) {
@@ -25,6 +26,7 @@ app.post("/", (req, res) => {
   }
 });
 
+// the third object type structure is for the response body
 app.post<{}, {}, { numbers: number[] }>("/sum", (req, res) => {
   let total = 0;
   for (const n of req.body.numbers) {
